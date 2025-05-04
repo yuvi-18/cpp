@@ -75,22 +75,22 @@
 
 //q3. write a C++ program to find the reverse of a number.
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-int main() {
-    int num, reverse = 0, remainder;
+// int main() {
+//     int num, reverse = 0, remainder;
     
-    cout << "Enter a number: ";
-    cin >> num;
+//     cout << "Enter a number: ";
+//     cin >> num;
     
-    int original = num;
+//     int original = num;
     
-    while (num != 0) {
-        remainder = num % 10;
-        reverse = reverse * 10 + remainder; 
-        num /= 10;
-    }
-    cout << "The reverse of " << original << " is " << reverse << endl;
-    return 0;
-}
+//     while (num != 0) {
+//         remainder = num % 10;
+//         reverse = reverse * 10 + remainder; 
+//         num /= 10;
+//     }
+//     cout << "The reverse of " << original << " is " << reverse << endl;
+//     return 0;
+// }

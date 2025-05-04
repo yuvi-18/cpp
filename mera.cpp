@@ -5,7 +5,7 @@ int main(){
     // int arr[]={2,4,8,12,16};
     // cout << arr[3] << endl;
     // cout << arr[0];
-
+    
     // for (int i = 0; i < 5; i++)
     // {
     //     cout << arr[i] << " ";

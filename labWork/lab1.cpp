@@ -5,23 +5,26 @@ Install vs code from the official website and then open it, install gcc and set 
 
 // q2. Write a simple "Hello, World!" program.
 
-#include <iostream>
+// #include <iostream>
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
-}
+// int main(){
+//     std::cout << "Hello World!" ;
+//     return 0 ; 
+// }
 
 //q3. Swapping Two Numbers Without Using a Third Variable.
 
 #include <iostream>
+using namespace std;
+
 int main(){
-    int a = 10,  b = 20;
+    int a , b;
+    cin >> a >> b ;
 
     a = a + b;
     b = a - b;
-    a = b + b;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
+    a = a - b ;
+
+    cout << "A: " << a << endl << "B: " << b;
     return 0;
 }
