@@ -2,83 +2,97 @@
 
 // #include <iostream>
 // #include <string>
-// #include <vector>
+
 // using namespace std;
 
-// class Student {
-// public:
+// class student{
+//     public:
+//     // data types
 //     string name;
 //     int id;
-//     vector<double> grades; // Stores multiple grades
+//     char grades;
+
+//     // constructor
+//     student(string n, int i, char g){
+//          name = n;
+//          id = i;
+//          grades = g;
+//     }
+
+//     // member function
+//     void display(){
+//         cout << name << endl;
+//         cout << id << endl;
+//         cout << grades << endl;
+//     }
 // };
 
-// int main() {
-//     Student s;
-//     s.name = "Alice";
-//     s.id = 101;
-//     s.grades = {90.5, 85.0, 78.2};
-
-//     cout << "Student Name: " << s.name << "\n";
-//     cout << "Student ID: " << s.id << "\nGrades: ";
-//     for (double grade : s.grades)
-//         cout << grade << " ";
-//     cout << "\n";
-
+// int main(){
+//     student s1("yuvraj", 23, 'c');
+//     s1.display();
 //     return 0;
 // }
 
 
 // Employee Management System Using Classes and Objects
 
+// Implement a program to create a class of employee to store its detail (Emp no, name, designation, department, monthly salary). Take input of 5 such employees and print the details of all employees whose salary is > 60,000.
+
 #include <iostream>
-#include <vector>
 #include <string>
+
 using namespace std;
 
-class Employee {
-    int id;
-    string name;
-    double salary;
-public:
-    Employee(int i, const string &n, double s) : id(i), name(n), salary(s) {}
+class employee{
+    private:
+    int empNo;
+    string empName;
+    string designation;
+    string department;
+    int salary;
+
+    public:
+    employee(){}
+
+    void getDetails(int i){
+        for (int i = 1; i <= 5; i++)
+        { 
+            cout << "Enter Details for " << i << " Employee: " << endl ;
+            cout << "Emp number: ";
+            cin >> empNo;
+            cin.ignore();
+            cout << "Emp name: ";
+            getline(cin, empName);
+            cout << "Emp designation: ";
+            getline(cin, designation);
+            cout << "Emp department: ";
+            getline(cin, department);
+            cout << "Emp salary: ";
+            cin >> salary;
+        }
+    }
+
     void display() const {
-        cout << "ID: " << id << ", Name: " << name << ", Salary: " << salary << "\n";
+        cout << "For Employ: " << empNo << endl;
+        cout << empName << endl;
+        cout << designation << endl;
+        cout << department << endl;
+        cout << salary << endl;
     }
 };
 
-int main() {
-    vector<Employee> employees;
-    int choice;
-    
-    do {
-        cout << "\nEmployee Management System Menu:\n";
-        cout << "1. Add Employee\n";
-        cout << "2. Display Employees\n";
-        cout << "3. Exit\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
-        if(choice == 1) {
-            int id;
-            double salary;
-            string name;
-            cout << "Enter Employee ID: ";
-            cin >> id;
-            cin.ignore(); // Clear newline character from input buffer
-            cout << "Enter Employee Name: ";
-            getline(cin, name);
-            cout << "Enter Employee Salary: ";
-            cin >> salary;
-            employees.push_back(Employee(id, name, salary));
-        }
-        else if(choice == 2) {
-            if(employees.empty())
-                cout << "No employees found.\n";
-            else {
-                for(const auto &emp : employees)
-                    emp.display();
-            }
-        }
-    } while(choice != 3);
-    
+int main(){
+    const int numEmployees = 5;
+    employee employees[numEmployees];
+    for (int i = 0; i < numEmployees; i++) {
+        employees[i].getDetails(i);
+    }
+    for (int i = 0; i < numEmployees; i++) {
+        employees[i].display();
+    }
     return 0;
-}
+} 
+
+
+
+// not finished 

@@ -3,27 +3,39 @@
 // #include <iostream>
 // using namespace std;
 
-// unsigned long long factorial(int n) {
-//     if(n <= 1)
+// long long factorial(int num){
+//     if(num == 1 || num == 0){
 //         return 1;
-//     return n * factorial(n - 1);
+//     }
+//     return num * factorial(num -1);
 // }
 
-// int main() {
-//     int number;
-//     cin >> number;
-//     cout << factorial(number);
+// int main(){
+//     int num;
+//     cout << "Enter a Number: " ;
+//     cin >> num ;
+
+//     if(num < 0){
+//         cout << "Enter a positive number"; 
+//         return 0;
+//     }
+
+//     long long result = factorial(num);
+//     cout << result;
 //     return 0;
 // }
+
 
 // 2. Develop a number-guessing game using loops and conditional statements.
 
 // #include <iostream>
 // #include <cstdlib>
+// #include <ctime>
 
 // using namespace std;
 
 // int main() {
+//     srand(time(0)); 
 //     int secretNumber = rand() % 100 + 1;
 //     int guess;
     
@@ -48,85 +60,92 @@
 
 // #include <iostream>
 // #include <string>
+
 // using namespace std;
 
-// bool isPalindrome(const string &str) {
-//     int start = 0, end = str.size() - 1;
-//     while (start < end) {
-//         if (str[start] != str[end])
+// bool isPalindrome(string word){
+//     int left = 0, right = word.length() - 1;
+//     while (left < right)
+//     {
+//         if(word[left] != word[right]){
 //             return false;
-//         start++;
-//         end--;
+//         }
+//         right--;
+//         left++;
 //     }
 //     return true;
 // }
 
-// int main() {
-//     string input;
-//     cout << "Enter a string: ";
-//     getline(cin, input);
-    
-//     if (isPalindrome(input))
-//         cout << "\"" << input << "\" is a palindrome." << endl;
-//     else
-//         cout << "\"" << input << "\" is not a palindrome." << endl;
+// int main(){
+//     string word;
+//     cout << "Enter a Word: " ;
+//     cin >> word;
 
+//     if (isPalindrome(word))
+//     {
+//         cout << "The word is a palindrome";
+//     }
+//     else {
+//         cout << "The word is not a palindrome";
+//     }
 //     return 0;
 // }
+
 
 
 // 4. Create a program to reverse a string and sort an array.
 
-// #include <iostream>
-// #include <string>
-// using namespace std;
+#include <iostream>
+#include <string>
+using namespace std;
 
-// void reverseString(string &str) {
-//     int start = 0, end = str.size() - 1;
-//     while (start < end) {
-//         char temp = str[start];
-//         str[start] = str[end];
-//         str[end] = temp;
-//         start++;
-//         end--;
-//     }
-// }
+void reverseString(string &str) {
+    int left = 0, right = str.length() - 1;
 
-// void sortArray(int arr[], int size) {
-//     for (int i = 0; i < size - 1; i++) {
-//         for (int j = 0; j < size - i - 1; j++) {
-//             if (arr[j] > arr[j + 1]) {
-//                 int temp = arr[j];
-//                 arr[j] = arr[j + 1];
-//                 arr[j + 1] = temp;
-//             }
-//         }
-//     }
-// }
+    while (left < right) {
+        char temp = str[left];
+        str[left] = str[right];
+        str[right] = temp;
+        left++;
+        right--;
+    }
+}
 
-// int main() {
-//     string input;
-//     cout << "Enter a string: ";
-//     getline(cin, input);
+void sortArray(int arr[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // swap
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
 
-//     reverseString(input);
-//     cout << "Reversed string: " << input << endl;
+int main() {
+    string input;
+    int size;
+    cout << "Enter a string: ";
+    getline(cin, input);
+
+    reverseString(input);
+    cout << "Reversed string: " << input << endl;
+
+    cout << "Enter the number of elements: ";
+    cin >> size;
+    int arr[size];
+    cout << "Enter " << size << " elements: ";
+    for (int i = 0; i < size; i++) {
+        cin >> arr[i];
+    }
     
-//     int n;
-//     cout << "Enter number of elements in the array: ";
-//     cin >> n;
-//     int *arr = new int[n];
-//     cout << "Enter " << n << " numbers: ";
-//     for (int i = 0; i < n; i++) {
-//         cin >> arr[i];
-//     }
+    sortArray(arr, size);
+    cout << "Sorted array: ";
+    for (int i = 0; i < size; i++)
+        cout << arr[i] << " ";
+    cout << endl;
     
-//     sortArray(arr, n);
-//     cout << "Sorted array: ";
-//     for (int i = 0; i < n; i++)
-//         cout << arr[i] << " ";
-//     cout << endl;
-    
-//     delete[] arr;
-//     return 0;
-// }
+    return 0;
+}
