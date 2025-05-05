@@ -2,27 +2,33 @@
 
 #include <iostream>
 #include <string>
+
 using namespace std;
 
-int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-
-    bool isPalindrome = true;
-    int len = str.length();
-
-    for (int i = 0; i < len / 2; i++) {
-        if (str[i] != str[len - 1 - i]) {
-            isPalindrome = false;
-            break;
+bool isPalindrome(string word){
+    int left = 0, right = word.length() - 1;
+    while (left < right)
+    {
+        if(word[left] != word[right]){
+            return false;
         }
+        right--;
+        left++;
     }
+    return true;
+}
 
-    if (isPalindrome)
-        cout << "\"" << str << "\" is a palindrome." << endl;
-    else
-        cout << "\"" << str << "\" is not a palindrome." << endl;
+int main(){
+    string word;
+    cout << "Enter a Word: " ;
+    cin >> word;
 
+    if (isPalindrome(word))
+    {
+        cout << "The word is a palindrome";
+    }
+    else {
+        cout << "The word is not a palindrome";
+    }
     return 0;
 }

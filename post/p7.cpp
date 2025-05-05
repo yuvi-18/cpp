@@ -19,10 +19,11 @@ using namespace std;
 
 int main(){
     int i = 2;
-    while (i < 11 && (i % 2) == 0)
-    {
-        cout << "Even numbers from 2 to 10:- " << endl;
-        i++;
+    cout << "Even numbers from 2 to 10:- " << endl;
+
+    while (i <= 10) {
+        cout << i << " ";
+        i += 2;
     }
     return 0;
 }
