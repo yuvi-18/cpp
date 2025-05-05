@@ -9,20 +9,43 @@ Namespaces in C++ provide a way to group related identifiers (like functions, cl
 q3. Write a program demonstrating an array of `Student` objects.*/
 
 #include <iostream>
-#include <string>
 using namespace std;
 
 class Student {
 public:
     string name;
-    int roll;
-    Student(string n = "", int r = 0) : name(n), roll(r) {}
-    void display() const { cout << name << " " << roll << "\n"; }
+    int rollNumber;
+    float marks;
+
+    void getDetails() {
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter Roll Number: ";
+        cin >> rollNumber;
+        cout << "Enter Marks: ";
+        cin >> marks;
+    }
+
+    void display() {
+        cout << "Name: " << name << ", Roll Number: " << rollNumber << ", Marks: " << marks << endl;
+    }
 };
 
 int main() {
-    Student students[3] = { Student("Alice", 101), Student("Bob", 102), Student("Charlie", 103) };
-    for (const auto &s : students)
-        s.display();
+    int n;
+    cout << "Enter number of students: ";
+    cin >> n;
+
+    Student students[n];
+    for (int i = 0; i < n; i++) {
+        cout << "\nEnter details for Student " << i + 1 << ":" << endl;
+        students[i].getDetails();
+    }
+
+    cout << "\nStudent Details:\n";
+    for (int i = 0; i < n; i++) {
+        students[i].display();
+    }
+    
     return 0;
 }
