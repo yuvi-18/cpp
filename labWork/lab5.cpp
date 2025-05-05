@@ -54,10 +54,8 @@ class employee{
     public:
     employee(){}
 
-    void getDetails(int i){
-        for (int i = 1; i <= 5; i++)
-        { 
-            cout << "Enter Details for " << i << " Employee: " << endl ;
+    void getDetails(){
+            cout << "Enter Details for Employee: " << endl ;
             cout << "Emp number: ";
             cin >> empNo;
             cin.ignore();
@@ -69,30 +67,25 @@ class employee{
             getline(cin, department);
             cout << "Emp salary: ";
             cin >> salary;
-        }
     }
 
     void display() const {
         cout << "For Employ: " << empNo << endl;
-        cout << empName << endl;
-        cout << designation << endl;
-        cout << department << endl;
-        cout << salary << endl;
+        cout << "Name: " << empName << endl;
+        cout << "designation: " << designation << endl;
+        cout << "department: " << department << endl;
+        cout << "salary: " << salary << endl;
     }
 };
 
 int main(){
-    const int numEmployees = 5;
-    employee employees[numEmployees];
-    for (int i = 0; i < numEmployees; i++) {
-        employees[i].getDetails(i);
-    }
-    for (int i = 0; i < numEmployees; i++) {
-        employees[i].display();
-    }
+    employee e1;
+    e1.getDetails();
+    
+    employee e2;
+    e2.getDetails();
+
+    e1.display();
+    e1.display();
     return 0;
 } 
-
-
-
-// not finished 

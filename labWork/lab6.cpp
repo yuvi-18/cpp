@@ -3,26 +3,25 @@
 // #include <iostream>
 // using namespace std;
 
-// class Example {
-// private:
+// class example{
+//     public:
 //     static int count;
 
-// public:
-//     static void increment() {
+//     static void increment(){
 //         count++;
 //     }
 
-//     static void display() {
-//         cout << "Count: " << count << endl;
+//     static void display(){
+//         cout << count;
 //     }
 // };
 
-// int Example::count = 0;
+// int example::count = 0;
 
-// int main() {
-//     Example::increment();
-//     Example::increment();
-//     Example::display();
+// int main(){
+//     example::increment();
+//     example::increment();
+//     example::display();
 //     return 0;
 // }
 
